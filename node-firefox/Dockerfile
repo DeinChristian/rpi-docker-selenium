@@ -4,6 +4,7 @@ USER root
 
 #=========
 # Firefox
+#
 #=========
 ENV FIREFOX_VERSION=53.0.2
 ARG FIREFOX_LIB_FILENAME=firefox_53.0.2+build1-0ubuntu0.14.04.2_armhf.deb
@@ -19,6 +20,7 @@ RUN wget --no-verbose -O /tmp/firefox.deb \
 
 #============
 # GeckoDriver
+# https://github.com/mozilla/geckodriver/releases/
 #============
 ARG GECKODRIVER_VERSION=0.16.1
 

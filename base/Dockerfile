@@ -1,4 +1,4 @@
-FROM ioft/armhf-ubuntu:16.04
+FROM ioft/armhf-ubuntu:14.04.3
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
