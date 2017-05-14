@@ -1,4 +1,4 @@
-FROM pun4drunk/rpi-selenium-base
+FROM deinchristian/rpi-selenium-base
 MAINTAINER dein.christian "dein.christian@googlemail.com"
 
 USER root

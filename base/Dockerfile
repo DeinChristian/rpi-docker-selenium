@@ -1,15 +1,12 @@
-FROM hypriot/rpi-java
+FROM ioft/armhf-ubuntu:16.04
 MAINTAINER dein.christian "dein.christian@googlemail.com"
 
 # Install dependencies
-RUN apt-get update -qqy \
-  && apt-get -qqy --no-install-recommends install \
-    bzip2 \
-    ca-certificates \
-    sudo \
-    unzip \
-    wget \
-  && rm -rfv /var/lib/apt/lists/* /var/cache/apt/*
+RUN apt-get update && apt-get install -y \
+	wget \
+	unzip \
+	default-jre \
+	ca-certificates
 
 # Selenium
 ARG SELENIUM_VERSION=3.4

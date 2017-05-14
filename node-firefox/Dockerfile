@@ -1,4 +1,4 @@
-FROM pun4drunk/rpi-selenium-node-base
+FROM deinchristian/rpi-selenium-node-base
 MAINTAINER dein.christian "dein.christian@googlemail.com"
 
 USER root
@@ -6,7 +6,7 @@ USER root
 #=========
 # Firefox
 #=========
-ARG FIREFOX_VERSION=52.0
+ARG FIREFOX_VERSION=53.0.2+build1-0ubuntu0.14.04.2
 
 RUN apt-get update
 RUN apt-get -y --no-install-recommends install firefox \
