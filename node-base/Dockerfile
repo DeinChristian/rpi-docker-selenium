@@ -1,7 +1,4 @@
 FROM deinchristian/rpi-selenium-base
-MAINTAINER dein.christian "dein.christian@googlemail.com"
-
-USER root
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true

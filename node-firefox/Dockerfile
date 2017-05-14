@@ -1,12 +1,12 @@
 FROM deinchristian/rpi-selenium-node-base
-MAINTAINER dein.christian "dein.christian@googlemail.com"
 
 USER root
 
 #=========
 # Firefox
 #=========
-ARG FIREFOX_VERSION=53.0.2+build1-0ubuntu0.14.04.2
+ENV FIREFOX_VERSION=53.0.2
+ARG FIREFOX_LIB_FILENAME=firefox_53.0.2+build1-0ubuntu0.14.04.2_armhf.deb
 
 RUN apt-get update
 RUN apt-get -y --no-install-recommends install firefox \
@@ -14,7 +14,7 @@ RUN apt-get -y --no-install-recommends install firefox \
 && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 RUN wget --no-verbose -O /tmp/firefox.deb \
-  http://launchpadlibrarian.net/319017478/firefox_53.0.2+build1-0ubuntu0.14.04.2_armhf.deb \
+  http://launchpadlibrarian.net/319017478/$FIREFOX_LIB_FILENAME \
   && dpkg -i /tmp/firefox.deb
 
 #============

@@ -1,5 +1,4 @@
 FROM ioft/armhf-ubuntu:16.04
-MAINTAINER dein.christian "dein.christian@googlemail.com"
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
