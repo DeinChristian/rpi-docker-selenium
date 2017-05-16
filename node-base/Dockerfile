@@ -3,21 +3,14 @@ FROM deinchristian/rpi-selenium-base
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
 
-#===================
-# Timezone settings
-# Possible alternative: https://github.com/docker/docker/issues/3359#issuecomment-32150214
-#===================
-ENV TZ "Europe/Berlin"
-RUN echo "${TZ}" | tee /etc/timezone \
-  && dpkg-reconfigure --frontend noninteractive tzdata
-
 #==============
-# Xvfb
+# VNC and Xvfb
 #==============
 RUN apt-get update -qqy \
-  && apt-get -qqy install xvfb \
-  && apt-get -qqy install iproute \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get -qqy install \
+    locales \
+    xvfb \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 #==============================
 # Scripts to run Selenium Node

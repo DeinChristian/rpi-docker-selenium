@@ -3,26 +3,22 @@ FROM deinchristian/rpi-selenium-node-base
 USER root
 
 #=========
-# Firefox
+# Chrome
 #=========
+
 RUN apt-get update
-RUN apt-get -y install firefox \
+RUN apt-get -y install chromium-browser \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-#============
-# GeckoDriver
-# https://github.com/mozilla/geckodriver/releases/
-#============
-ARG GECKODRIVER_VERSION=0.16.1
+#==================
+# Chrome webdriver
+#==================
 
-RUN wget --no-verbose -O /tmp/geckodriver.tar.gz \
-  https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-arm7hf.tar.gz \
-  && rm -rf /opt/geckodriver \
-  && tar -C /opt -zxf /tmp/geckodriver.tar.gz \
-  && rm /tmp/geckodriver.tar.gz \
-  && mv /opt/geckodriver /opt/geckodriver-$GECKODRIVER_VERSION \
-  && chmod 755 /opt/geckodriver-$GECKODRIVER_VERSION \
-  && ln -fs /opt/geckodriver-$GECKODRIVER_VERSION /usr/bin/geckodriver
+RUN apt-get update
+RUN apt-get -y install chromium-chromedriver \
+  && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+RUN ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
 #========================
 # Selenium Configuration
@@ -45,8 +41,15 @@ ENV NODE_DOWN_POLLING_LIMIT 2
 ENV NODE_APPLICATION_NAME ""
 
 COPY generate_config /opt/selenium/generate_config
-RUN chmod +x /opt/selenium/generate_config \
-  && chown -R seluser:seluser /opt/selenium
+RUN chmod +x /opt/selenium/generate_config
+
+#=================================
+# Chrome Launch Script Modification
+#=================================
+COPY chrome_launcher.sh /opt/google/chrome/google-chrome
+RUN chmod +x /opt/google/chrome/google-chrome
+
+RUN chown -R seluser:seluser /opt/selenium
 
 # Following line fixes https://github.com/SeleniumHQ/docker-selenium/issues/87
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
