@@ -1,8 +1,10 @@
 FROM arm32v7/ubuntu:16.04
 
+# Upgrade
+RUN apt-get update -y && apt-get upgrade -y
+
 # Install dependencies
-RUN apt-get update -qqy \
-  && apt-get -qqy --no-install-recommends install \
+RUN apt-get -qqy --no-install-recommends install \
     bzip2 \
     ca-certificates \
     openjdk-8-jre-headless \
