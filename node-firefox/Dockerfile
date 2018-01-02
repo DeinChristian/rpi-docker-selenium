@@ -13,7 +13,7 @@ RUN apt-get -y install firefox \
 # GeckoDriver
 # https://github.com/mozilla/geckodriver/releases/
 #============
-ARG GECKODRIVER_VERSION=0.19.0
+ARG GECKODRIVER_VERSION=0.19.1
 
 RUN wget --no-verbose -O /tmp/geckodriver.tar.gz \
   https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-arm7hf.tar.gz \
