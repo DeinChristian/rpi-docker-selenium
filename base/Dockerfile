@@ -26,8 +26,8 @@ RUN echo "${TZ}" > /etc/timezone \
 #==========
 # Selenium
 #==========
-ARG SELENIUM_VERSION=3.8
-ARG SELENIUM_VERSION_FULL=3.8.1
+ARG SELENIUM_VERSION=3.11
+ARG SELENIUM_VERSION_FULL=3.11.0
 
 RUN mkdir -p /opt/selenium \
   && wget --no-verbose http://selenium-release.storage.googleapis.com/$SELENIUM_VERSION/selenium-server-standalone-$SELENIUM_VERSION_FULL.jar -O /opt/selenium/selenium-server-standalone.jar \
