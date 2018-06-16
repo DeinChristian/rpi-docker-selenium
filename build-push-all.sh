@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker login docker.io
+
 cd ./base
 ./build.sh
 cd ..

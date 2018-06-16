@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:16.04
+FROM arm32v7/ubuntu:18.04
 
 # Upgrade
 RUN apt-get update -y && apt-get upgrade -y
@@ -26,8 +26,8 @@ RUN echo "${TZ}" > /etc/timezone \
 #==========
 # Selenium
 #==========
-ARG SELENIUM_VERSION=3.11
-ARG SELENIUM_VERSION_FULL=3.11.0
+ARG SELENIUM_VERSION=3.12
+ARG SELENIUM_VERSION_FULL=3.12.0
 
 RUN mkdir -p /opt/selenium \
   && wget --no-verbose http://selenium-release.storage.googleapis.com/$SELENIUM_VERSION/selenium-server-standalone-$SELENIUM_VERSION_FULL.jar -O /opt/selenium/selenium-server-standalone.jar \
