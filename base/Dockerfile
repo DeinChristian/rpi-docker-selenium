@@ -4,15 +4,18 @@ FROM arm32v7/ubuntu:18.04
 RUN apt-get update -y && apt-get upgrade -y
 
 # Install dependencies
-RUN apt-get -qqy --no-install-recommends install \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy --no-install-recommends install \
     bzip2 \
     ca-certificates \
-    openjdk-8-jre-headless \
+    ca-certificates-java \
     tzdata \
     sudo \
     unzip \
-    wget \
-  && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
+    wget
+RUN /var/lib/dpkg/info/ca-certificates-java.postinst configure
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy --no-install-recommends install \
+    openjdk-8-jre-headless
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
   && sed -i 's/securerandom\.source=file:\/dev\/random/securerandom\.source=file:\/dev\/urandom/' ./usr/lib/jvm/java-8-openjdk-armhf/jre/lib/security/java.security
 
 #===================
@@ -26,8 +29,8 @@ RUN echo "${TZ}" > /etc/timezone \
 #==========
 # Selenium
 #==========
-ARG SELENIUM_VERSION=3.12
-ARG SELENIUM_VERSION_FULL=3.12.0
+ARG SELENIUM_VERSION=3.14
+ARG SELENIUM_VERSION_FULL=3.14.0
 
 RUN mkdir -p /opt/selenium \
   && wget --no-verbose http://selenium-release.storage.googleapis.com/$SELENIUM_VERSION/selenium-server-standalone-$SELENIUM_VERSION_FULL.jar -O /opt/selenium/selenium-server-standalone.jar \
