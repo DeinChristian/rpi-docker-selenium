@@ -30,4 +30,20 @@ cd ./node-chrome-debug
 ./build.sh
 cd ..
 
+cd ./standalone-chrome
+./build.sh
+cd ..
+
+cd ./standalone-chrome-debug
+./build.sh
+cd ..
+
+cd ./standalone-firefox
+./build.sh
+cd ..
+
+cd ./standalone-firefox-debug
+./build.sh
+cd ..
+
 echo "Done!"
