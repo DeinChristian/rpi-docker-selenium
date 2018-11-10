@@ -4,7 +4,7 @@ Selenium Standalone Server with Firefox
 
 ## Dockerfile
 
-[`selenium/standalone-firefox` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/StandaloneFirefox/Dockerfile)
+[`selenium/standalone-firefox` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/standalone-firefox/Dockerfile)
 
 ## How to use this image
 

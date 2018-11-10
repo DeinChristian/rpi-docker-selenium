@@ -1,17 +1,17 @@
-# Selenium Grid Standalone - Firefox Debug
+# Selenium Grid Standalone - Chrome Debug
 
 _This image is only intended for development purposes!_ Runs a Selenium Grid Standalone with a VNC Server to allow you to visually see the browser being automated.
 
 
 ## Dockerfile
 
-[`selenium/standalone-firefox-debug` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/StandaloneFirefoxDebug/Dockerfile)
+[`selenium/standalone-chrome-debug` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/standalone-firefox-debug/Dockerfile)
 
 ## How to use this image
 
 
 ```
-$ docker run -d -p 4444:4444 -p 5900:5900 -v /dev/shm:/dev/shm selenium/standalone-firefox-debug
+$ docker run -d -p 4444:4444 -p 5900:5900 -v /dev/shm:/dev/shm selenium/standalone-chrome-debug
 ```
 
 You can acquire the port that the VNC server is exposed to by running:

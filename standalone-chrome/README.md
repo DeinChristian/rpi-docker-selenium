@@ -4,7 +4,7 @@ Selenium Standalone Server with Chrome
 
 ## Dockerfile
 
-[`selenium/standalone-chrome` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/StandaloneChrome/Dockerfile)
+[`selenium/standalone-chrome` Dockerfile](https://github.com/SeleniumHQ/docker-selenium/blob/master/standalone-chrome/Dockerfile)
 
 ## How to use this image
 

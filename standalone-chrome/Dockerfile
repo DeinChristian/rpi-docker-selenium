@@ -2,8 +2,8 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM selenium/node-chrome:3.14.0-europium
-LABEL authors=SeleniumHQ
+FROM deinchristian/rpi-selenium-node-chrome:3.14.0
+LABEL authors=DeinChristian
 
 USER seluser
 
